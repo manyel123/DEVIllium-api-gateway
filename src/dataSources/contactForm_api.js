@@ -6,9 +6,12 @@ class ContactFormAPI extends RESTDataSource {
     
     constructor() {
         super();
+
+        // contact form microservice url
         this.baseURL = serverConfig.services_api_url;
     }
 
+    // contact form microservice functions (Only JSON format allowed)
     async createContactForm(contactForm){
         contactForm = new Object(JSON.parse(JSON.stringify(contactForm)));
         return await this.post('/newContactForm', contactForm)

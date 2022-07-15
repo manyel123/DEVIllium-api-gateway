@@ -6,9 +6,12 @@ class PublicationsAPI extends RESTDataSource {
 
     constructor() {
         super();
+
+        // publication microservice url
         this.baseURL = serverConfig.services_api_url;
     }
 
+    // publication microservice functions (Only JSON format allowed)
     async createDevPublication(devPublication){
         devPublication = new Object(JSON.parse(JSON.stringify(devPublication)));
         return await this.post('/newDevPublication', devPublication)

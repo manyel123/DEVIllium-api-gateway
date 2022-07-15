@@ -6,9 +6,12 @@ class AuthAPI extends RESTDataSource {
 
     constructor() {
         super();
+
+        // auth microservice url
         this.baseURL = serverConfig.auth_api_url;
     }
 
+    // auth microservice functions (Only JSON format allowed)
     async createUser(user) {
         user = new Object(JSON.parse(JSON.stringify(user)));
         return await this.post(`/user/`, user);

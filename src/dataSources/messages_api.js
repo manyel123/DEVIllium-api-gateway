@@ -6,9 +6,12 @@ class MessagesAPI extends RESTDataSource {
 
     constructor() {
         super();
+
+        // messages microservice url
         this.baseURL = serverConfig.services_api_url;
     }
 
+    // messages microservice functions (Only JSON format allowed)
     async createMessage(message){
         message = new Object(JSON.parse(JSON.stringify(message)));
         return await this.post('/messages', message)
